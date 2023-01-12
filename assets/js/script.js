@@ -1,5 +1,6 @@
 var container = document.querySelector(".container");
 var screenClickCount = document.querySelector("#clickcount");
+var screenMatch = document.querySelector("#matches");
 
 var images = [
     "url('./assets/images/dog.jpg')",
@@ -25,6 +26,7 @@ var randomArrayNumbers = [];
 var clickCount = 0;
 var click1img = "";
 var click2img = "";
+var matches = 0;
 
 //randomly order the numbers, to put the images in a random order
 //the index+1 of the images array directly relate to the data-number
@@ -72,13 +74,14 @@ container.addEventListener("click", function(event) {
                 var firstClick = document.querySelector(".clicked");
                 firstClick.classList.remove("clicked");
                 firstClick.dataset.state = "match";
-
+                matches++;
                 clickCount = 0;
                 click1img = "";
                 click2img = "";
                 click1 = "";
                 click2 = "";
                 screenClickCount.textContent = clickCount;
+                screenMatch.textContent = matches;
             } else { 
                 //need to put a set interval function here, to show the cards for a few seconds
                 var timerInterval = setTimeout(function () {
